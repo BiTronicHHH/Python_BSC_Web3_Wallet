@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="54" viewBox="0 0 54 54">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.101" y1="0.5" x2="8.606" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#4e38f3"/>
+      <stop offset="1" stop-color="#7e42fe"/>
+    </linearGradient>
+    <filter id="bitcointalk" x="0" y="0" width="54" height="54" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#bitcointalk)">
+    <path id="bitcointalk-2" data-name="bitcointalk" d="M0,18A18,18,0,1,1,18,36,18.054,18.054,0,0,1,0,18Zm19.636,8.182h1.636A4.9,4.9,0,0,0,24.905,18a4.9,4.9,0,0,0-3.632-8.182H19.636V8.182a1.636,1.636,0,0,0-3.273,0V9.818H11.455a1.636,1.636,0,0,0,0,3.273h1.636v9.818H11.455a1.636,1.636,0,0,0,0,3.273h4.909v1.636a1.636,1.636,0,0,0,3.273,0Zm1.636-13.091H16.364v3.273h4.909A1.636,1.636,0,0,0,21.273,13.091Zm0,6.545H16.364v3.273h4.909A1.636,1.636,0,0,0,21.273,19.636Z" transform="translate(9 6)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

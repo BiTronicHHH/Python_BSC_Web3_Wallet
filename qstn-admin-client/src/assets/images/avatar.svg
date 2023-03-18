@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="76" height="76" viewBox="0 0 76 76">
+  <defs>
+    <filter id="Base" x="0" y="0" width="76" height="76" filterUnits="userSpaceOnUse">
+      <feOffset dy="4" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#2c2738" flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient" y1="0.055" x2="1" y2="0.956" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#5839f5"/>
+      <stop offset="1" stop-color="#7941fd"/>
+    </linearGradient>
+    <filter id="Base-2" x="0" y="0" width="76" height="76" filterUnits="userSpaceOnUse">
+      <feOffset dy="4" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="4" result="blur-2"/>
+      <feFlood flood-color="#2c2738" flood-opacity="0.078"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Base)">
+        <path id="Base-3" data-name="Base" d="M4,0H48a4,4,0,0,1,4,4V48a4,4,0,0,1-4,4H4a4,4,0,0,1-4-4V4A4,4,0,0,1,4,0Z" fill="#7c9cbf"/>
+      </g>
+    </clipPath>
+  </defs>
+  <g id="Group_38" data-name="Group 38" transform="translate(12 8)">
+    <g transform="matrix(1, 0, 0, 1, -12, -8)" filter="url(#Base-2)">
+      <path id="Base-4" data-name="Base" d="M4,0H48a4,4,0,0,1,4,4V48a4,4,0,0,1-4,4H4a4,4,0,0,1-4-4V4A4,4,0,0,1,4,0Z" transform="translate(12 8)" fill="url(#linear-gradient)"/>
+    </g>
+    <g id="Elements_Avatar_Thumb_Initials" data-name="Elements/Avatar/Thumb/Initials" clip-path="url(#clip-path)">
+      <text id="IL" transform="translate(26 32)" fill="#fff" font-size="16" font-family="IBMPlexSans-Medium, IBM Plex Sans" font-weight="500" opacity="0.86"><tspan x="-9.768" y="0">PS</tspan></text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,56 @@
+.earn-header-container {
+  padding: 20px 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.earn-header-title h1 {
+  font-size: 20px;
+  font-family: "poppins-regular";
+  color: #ffffff;
+}
+
+.earn-header-title span {
+  font-size: 20px;
+  font-family: "poppins-bold";
+  color: #ffffff;
+}
+
+.survey-card {
+  margin: 5px 0;
+  box-shadow: rgb(17 17 26 / 5%) 0px 4px 16px, rgb(17 17 26 / 5%) 0px 8px 32px;
+  border: 0 !important;
+}
+.survey-card .card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.survey-name {
+  margin: 0;
+  font-size: 15px;
+  color: #0d1f3c;
+}
+
+.survey-card .primary-btn {
+  font-size: 13px !important;
+}
+
+.survey-card .primary-btn img {
+  width: 15px;
+  margin-right: 2px;
+}
+
+.survey-card .survey-title {
+  display: flex;
+  align-items: center;
+}
+.survey-card .survey-title img {
+  width: 35px;
+  margin-right: 10px;
+}
+
+.custom-height-section {
+  min-height: calc(100vh - 146px);
+}

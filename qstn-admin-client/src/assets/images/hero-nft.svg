@@ -1,0 +1,44 @@
+<svg id="Component_Flap_Place_Hero" data-name="Component/Flap/⚡Place/Hero" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="716" height="400" viewBox="0 0 716 400">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Mask" d="M20,0H696a20,20,0,0,1,20,20V380a20,20,0,0,1-20,20H20A20,20,0,0,1,0,380V20A20,20,0,0,1,20,0Z" fill="#fff"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="Mask-2" data-name="Mask" d="M0,0H640V400H0Z" fill="#fff"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x2="1.051" y2="0.967" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#5237f4"/>
+      <stop offset="1" stop-color="#7b41fd"/>
+    </linearGradient>
+  </defs>
+  <g id="Component_Flap_Place_Hero-2" data-name="Component/Flap/⚡Place/Hero">
+    <g id="Base">
+      <g id="Base-2" data-name="Base" clip-path="url(#clip-path)">
+        <g id="Component_Flap_Global_Artwork" data-name="Component/Flap/📦Global/Artwork" transform="translate(76)">
+          <g id="Component_Flap_Global_Artwork-2" data-name="Component/Flap/📦Global/Artwork">
+            <path id="Mask-3" data-name="Mask" d="M0,0H640V400H0Z" fill="#fff"/>
+            <g id="Component_Flap_Global_Artwork-3" data-name="Component/Flap/📦Global/Artwork" clip-path="url(#clip-path-2)">
+              <path id="Shape" d="M0,395l385.5-.4V0Z" transform="translate(120.5 5.902)" fill="#f1f1f1"/>
+              <path id="Shape-2" data-name="Shape" d="M0,213,185,400H390V0H0Z" transform="translate(223)" fill="url(#linear-gradient)"/>
+              <path id="Shape-3" data-name="Shape" d="M0,0H177V210H0Z" transform="translate(436)" fill="#e3d8fe"/>
+              <path id="Shape-4" data-name="Shape" d="M0,0H213V93H0Z" transform="translate(223)" fill="#f1f1f1"/>
+              <path id="Shape-5" data-name="Shape" d="M213,0V213H0Z" transform="translate(223)" fill="#fff"/>
+              <path id="Shape-6" data-name="Shape" d="M0,0,156,156H0Z" transform="translate(482 244)" fill="#e3d8fe"/>
+              <path id="Shape-7" data-name="Shape" d="M215,0,0,215,215,429Z" transform="translate(425 -27)" fill="#653cf8"/>
+              <path id="Shape-8" data-name="Shape" d="M215,213V0H0" transform="translate(8)" fill="#e3d8fe"/>
+              <path id="Shape_Copy" data-name="Shape Copy" d="M30,0A30,30,0,1,1,0,30,30,30,0,0,1,30,0Z" transform="translate(193 17)" fill="#e3d8fe"/>
+              <path id="Shape-9" data-name="Shape" d="M30,0A30,30,0,1,1,0,30,30,30,0,0,1,30,0Z" transform="translate(519 33)" fill="#fff"/>
+              <path id="Shape-10" data-name="Shape" d="M38,0A38,38,0,1,1,0,38,38,38,0,0,1,38,0Z" transform="translate(314 307)" fill="#fff"/>
+              <path id="Combined_Shape" data-name="Combined Shape" d="M53.634,64.344,0,10.709A37.952,37.952,0,0,1,61.362,23.166a37.971,37.971,0,0,1-7.728,41.177h0Z" transform="translate(326 307)" fill="#e3d8fe"/>
+              <g id="Shape-11" data-name="Shape" transform="translate(437.543 56) rotate(45)">
+                <path id="Shape-12" data-name="Shape" d="M102,203c55.557,0,101-45.443,101-101C203,45.443,157.557,0,102,0A101.715,101.715,0,0,0,0,102C0,157.557,45.443,203,102,203Z" fill="#f1f1f1"/>
+                <path id="Shape-13" data-name="Shape" d="M49.241,98A48.9,48.9,0,0,0,98,49.241C98,21.938,76.062,0,49.241,0A49.1,49.1,0,0,0,0,49.241C0,76.062,21.938,98,49.241,98Z" transform="translate(53 52)" fill="#f1f1f1"/>
+                <path id="Shape-14" data-name="Shape" d="M0,202.517H0V0A99.392,99.392,0,0,1,36.761,9.814a101.17,101.17,0,0,1,15.974,9.7A102.193,102.193,0,0,1,66.621,31.929,102.108,102.108,0,0,1,94,101.758a99.838,99.838,0,0,1-7.33,37.679,101.236,101.236,0,0,1-8.617,16.626,102.322,102.322,0,0,1-11.433,14.666,102.517,102.517,0,0,1-13.885,12.342,101.675,101.675,0,0,1-15.974,9.654A99.726,99.726,0,0,1,0,202.517Z" transform="translate(109 0.242)" fill="#fff"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

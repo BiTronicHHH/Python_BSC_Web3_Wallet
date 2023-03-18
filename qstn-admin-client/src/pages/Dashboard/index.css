@@ -1,0 +1,12 @@
+.custom-select {
+  background: url("../../assets/images/selectOptionDownArrow.png") no-repeat right;
+  background-color: #fff;
+}
+.custom-select select {
+  -webkit-appearance: none;
+  background: transparent;
+  width: 256px;
+}
+.custom-select select > option{
+  width: 256px;
+}

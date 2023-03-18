@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="54" viewBox="0 0 54 54">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.101" y1="0.5" x2="8.606" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#4e38f3"/>
+      <stop offset="1" stop-color="#7e42fe"/>
+    </linearGradient>
+    <filter id="reddit" x="0" y="0" width="54" height="54" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#reddit)">
+    <path id="reddit-2" data-name="reddit" d="M0,18A18,18,0,1,1,18,36,18,18,0,0,1,0,18Zm29.442,3.131a5.128,5.128,0,0,0-.079-.863,2.841,2.841,0,1,0-3.306-4.546,14.642,14.642,0,0,0-7.486-2.21l1.591-5.03L24.468,9.5a.25.25,0,0,1,0,.029.226.226,0,0,0,0,.033,2.346,2.346,0,1,0,.164-.845L19.984,7.621a.4.4,0,0,0-.473.268L17.738,13.5a14.818,14.818,0,0,0-7.833,2.183,2.84,2.84,0,1,0-3.363,4.534,5.116,5.116,0,0,0-.091.916c0,4.213,5.156,7.64,11.495,7.64S29.442,25.344,29.442,21.131Zm-2.65-10.04a1.532,1.532,0,1,0-1.534-1.533A1.534,1.534,0,0,0,26.792,11.092ZM9.243,16.154A2.045,2.045,0,1,0,6.76,19.4,7.181,7.181,0,0,1,9.243,16.154ZM12.4,19.718a1.7,1.7,0,1,1,1.7,1.7A1.7,1.7,0,0,1,12.4,19.718Zm9.717,5.028a5.573,5.573,0,0,1-4.1,1.27h-.021l-.007,0a5.574,5.574,0,0,1-4.1-1.27.4.4,0,0,1,.565-.564,4.855,4.855,0,0,0,3.536,1.036h.007l.007,0,.007,0h.006a4.858,4.858,0,0,0,3.537-1.036.4.4,0,1,1,.564.564Zm-.2-3.332a1.7,1.7,0,1,1,1.7-1.7A1.7,1.7,0,0,1,21.912,21.413Zm4.792-5.22a2.047,2.047,0,1,1,2.453,3.27A7.118,7.118,0,0,0,26.7,16.193Z" transform="translate(9 6)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

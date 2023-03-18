@@ -1,0 +1,34 @@
+.primary-btn,
+.sv-footer__complete-btn {
+  font-family: "poppins-medium" !important;
+  color: white;
+  border: 1px solid #8042fe !important;
+  background: linear-gradient(
+    113deg,
+    rgba(76, 56, 243, 1) 0%,
+    rgba(128, 74, 251, 1) 90%,
+    rgba(128, 66, 254, 1) 100%
+  ) !important;
+  padding: 8px 15px !important;
+  box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px !important;
+}
+
+.secondary-btn {
+  font-family: "poppins-medium" !important;
+  padding: 8px 15px !important;
+  box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px !important;
+  background: #ffff !important;
+  border: 1px solid #8042fe !important;
+  color: #8042fe !important;
+}
+
+.primary-btn:hover,
+.sv-footer__complete-btn:hover {
+  opacity: 0.9 !important;
+  background: linear-gradient(
+    304deg,
+    rgba(76, 56, 243, 1) 0%,
+    rgba(128, 74, 251, 1) 90%,
+    rgba(128, 66, 254, 1) 100%
+  ) !important;
+}

@@ -8,6 +8,7 @@ import { CiCircleChevDown } from "react-icons/ci";
 import images from "../../assets";
 import "./index.css";
 import BusinessCard from "../../assets/components/BusinessCard";
+import axios from "axios";
 
 export interface filterType {
   industry: "all" | "trending" | "recommended";
@@ -19,29 +20,43 @@ export interface filterType {
 
 export default function Business() {
   const navigate = useNavigate();
+  const [cardData, setCardData] = useState([]);
   const [active, setActive] = useState<filterType["industry"]>("all");
-  const cardData = [
-    {
-      imageUrl: images.authBusiness,
-      cardName: "Manage Business",
-      url: "/business",
-    },
-    {
-      imageUrl: images.authUser,
-      cardName: "authUser",
-      url: "/page2",
-    },
-    {
-      imageUrl: images.authUser,
-      cardName: "authUser",
-      url: "/page3",
-    },
-    {
-      imageUrl: images.authUser,
-      cardName: "authUser",
-      url: "/page4",
-    },
-  ];
+  useEffect(() => {
+    axios
+      .post("http://192.168.124.8:5000/api/business/display", {})
+      .then((res) => {
+        console.log(res.data.business);
+        setCardData(res.data.business);
+        console.log(cardData);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  // const cardData = [
+  //   {
+  //     imageUrl: images.authBusiness,
+  //     cardName: "Manage Business",
+  //     url: "/business",
+  //   },
+  //   {
+  //     imageUrl: images.authUser,
+  //     cardName: "authUser",
+  //     url: "/page2",
+  //   },
+  //   {
+  //     imageUrl: images.authUser,
+  //     cardName: "authUser",
+  //     url: "/page3",
+  //   },
+  //   {
+  //     imageUrl: images.authUser,
+  //     cardName: "authUser",
+  //     url: "/page4",
+  //   },
+  // ];
 
   return (
     <>
@@ -247,8 +262,9 @@ export default function Business() {
               </div>
               <div className="min-w-[400px] flex items-center justify-center">
                 <div className="grid grid-cols-4 gap-8">
-                  {cardData.map((data) => {
-                    return <BusinessCard key={data.cardName} data={data} />;
+                  {cardData.map((data, index) => {
+                    console.log(data);
+                    return <BusinessCard key={index} data={data} />;
                   })}
                 </div>
               </div>

@@ -17,14 +17,15 @@ import { clearMediaState } from "../../../store/features/media/media.slice";
 import { TbFileUpload } from "react-icons/tb";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { BsArrowRightShort } from "react-icons/bs";
+// import Media from "../../../components/Media";
 import Media from "../../../assets/components/Media";
 import { Routes } from "../../../routes/Routes";
 
 export type MediaType = {
   image: Array<any>;
-  display_name: string;
-  email: string;
-  bio: number;
+  title: string;
+  description: string;
+  copies: number;
   price: number;
   private: Boolean;
 };
@@ -114,7 +115,7 @@ const UploadMedia = () => {
 
   const submitForm: SubmitHandler<MediaType> = async (formData) => {
     setIsLoading(true);
-    await dispatch(uploadImage({ ...formData }));
+    // await dispatch(uploadImage({ ...formData, private: asPrivate }));
     if (isNFTPrize) navigate(Routes.SURVEY_CREATOR_WIDGET);
     else navigate(Routes.MARKETPLACE);
   };
@@ -200,7 +201,7 @@ const UploadMedia = () => {
                     className="custom-input w-full"
                     type="text"
                     placeholder='e. g. "Smocking monkey"'
-                    {...register("display_name")}
+                    {...register("title")}
                   />
                 </div>
               </div>
@@ -211,7 +212,7 @@ const UploadMedia = () => {
                     type="text"
                     className="custom-input w-full"
                     placeholder="e. g. “After purchasing you will able to recived the logo...”"
-                    {...register("email")}
+                    {...register("description")}
                   />
                 </div>
               </div>
@@ -223,7 +224,7 @@ const UploadMedia = () => {
                       className="custom-input"
                       type="number"
                       placeholder="Number of copies available"
-                      {...register("bio")}
+                      {...register("copies")}
                     />
                   </div>
                 </div>

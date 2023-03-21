@@ -24,7 +24,8 @@ const Login = () => {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    fetch("http://localhost:5000/api/login", {
+    alert("login submit");
+    fetch("http://192.168.124.8:5000/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,7 +41,7 @@ const Login = () => {
         else {
           alert("Welcome");
           localStorage.setItem("token", JSON.stringify(data));
-          navigate("/main");
+          navigate("/dashboard");
         }
       })
       .catch((error) => {

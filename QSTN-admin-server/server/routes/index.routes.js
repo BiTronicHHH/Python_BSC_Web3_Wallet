@@ -1,14 +1,24 @@
 const express = require("express");
-
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
 const Admin = require("../models/Admin.model");
 const WhiteListedUser = require("../models/WhitelistedUser.model");
-
+const Business = require("../models/Business.model");
 const app = express();
-
+const multer = require('multer');
 const { verificateToken } = require("../middleware/authentication.middleware");
+
+//setup multer for file upload
+var storage = multer.diskStorage(
+  {
+    destination: './build',
+    filename: function (req, file, cb) {
+      cb(null, file.originalname);
+    }
+  }
+);
+
+const upload = multer({ storage: storage })
 
 // ============================
 // Login (returns user instance, auth token)
@@ -70,6 +80,7 @@ app.post("/login", (req, res) => {
   });
 });
 
+
 // ============================
 // Create New User: All users will use this api to register
 // ============================
@@ -124,47 +135,67 @@ app.get("/current", verificateToken, (req, res) => {
     admin: req.user,
   });
 });
-
 // ============================
 // Register new user in whitelist
 // ============================
-app.post("/whitelist/create", verificateToken, (req, res) => {
+app.post("/business/create", upload.single('image'), (req, res, next) => {
   let body = req.body;
+  console.log(req);
   //   first verify if user already exists or not
-  WhiteListedUser.findOne({ address: body.address }, (err, foundAddrDB) => {
+  Business.findOne({ email: body.email }, (err, foundAddrDB) => {
     if (err) {
+      console.log(" > 2")
       return res.status(500).json({
         ok: false,
         err,
       });
     }
     if (foundAddrDB) {
+      console.log(" > 3")
       return res.status(400).json({
         ok: false,
         err: {
-          message: "User already exists in db",
+          message: "Business already exists in db",
         },
       });
     }
-
+    console.log(" > 4")
     // Here we create a new user with the params given in the request body
-    let user = new WhiteListedUser({
-      address: body.address,
-      status: body.status,
+    let business = new Business({
+      email: body.email,
+      display_name: body.display_name,
+      bio: body.bio,
     });
+    console.log(" > 5")
     // Now we save it in to the bbdd
-    user.save((err, userDB) => {
+    business.save((err, userDB) => {
       if (err) {
+        console.log(" > 6")
         return res.status(400).json({
           ok: false,
           err,
         });
       }
-      WhiteListedUser.find({}, (err, whitelistDB) => {
+      Business.find({}, (err, data) => {
         res.json({
           ok: true,
-          user: whitelistDB,
+          business: data,
         });
+      });
+    });
+  });
+});
+
+app.post("/business/display", (req, res) => {
+
+  let body = req.body;
+  console.log("business/display")
+  //   first verify if user already exists or not
+  Business.findOne({ email: body.email }, (err, foundAddrDB) => {
+    Business.find({}, (err, data) => {
+      res.json({
+        ok: true,
+        business: data,
       });
     });
   });

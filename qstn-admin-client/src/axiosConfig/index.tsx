@@ -2,7 +2,7 @@ import axios from "axios";
 
 // export const baseURL = "http://localhost:5000/";
 // export const baseURL = "https://qstn-backend-v1.herokuapp.com/";
-export const baseURL = "http://localhost:5000/";
+export const baseURL = "http://192.168.124.8:5000/";
 
 const api = axios.create({
   baseURL: baseURL + "api",

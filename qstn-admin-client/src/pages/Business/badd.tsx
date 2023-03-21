@@ -71,6 +71,33 @@ const Badd = () => {
   });
 
   const submitForm: SubmitHandler<MediaType> = async (formData) => {
+    console.log(
+      "token ",
+      JSON.parse(String(localStorage.getItem("token"))).token
+    );
+    console.log(formData.image);
+    fetch("http://192.168.124.8:5000/api/business/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: JSON.parse(String(localStorage.getItem("token"))).token,
+      },
+      body: JSON.stringify({
+        email: formData.email,
+        display_name: formData.display_name,
+        bio: formData.bio,
+        image: formData.image,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        localStorage.setItem("token", JSON.stringify(data));
+        navigate("/business");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+
     setIsLoading(true);
     await dispatch(uploadImage({ ...formData }));
     if (isNFTPrize) navigate(Routes.SURVEY_CREATOR_WIDGET);
@@ -96,6 +123,10 @@ const Badd = () => {
     // console.log("------>", { ...register("bio") });
   }, [register]);
 
+  // const onSubmit: SubmitHandler<Inputs> = async (data) => {
+
+  // };
+
   return (
     <>
       <div className="">
@@ -119,27 +150,6 @@ const Badd = () => {
               <label className="text-xs text-[#777E91] font-normal">
                 You can invite businesses to join the platform.
               </label>
-              {/* <div className="mt-2 w-full h-full">
-                  <input
-                    className="custom-input w-full absolute opacity-0 rounded-full"
-                    type="file"
-                    accept=".png,.jpg,.jpeg"
-                    placeholder="please select media to upload"
-                    {...register("image")}
-                    onChange={(e: any) => {
-                      setUploadedMedia(URL.createObjectURL(e.target.files[0]));
-                    }}
-                  />
-                  <div className="flex items-center justify-center w-[180px] h-[180px] bg-[#f4f5f6] text-[#777E91] border-2 rounded-full ">
-                    {uploadedMedia && (
-                      <img
-                        src={uploadedMedia}
-                        alt="BusinessCard"
-                        className="w-auto h-[120px] m-auto"
-                      />
-                    )}
-                  </div>
-                </div> */}
             </div>
             <form
               onSubmit={handleSubmit(submitForm)}

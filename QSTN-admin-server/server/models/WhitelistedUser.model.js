@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 const WhiteListedUserSchema = new mongoose.Schema({
   address: {
     type: String,

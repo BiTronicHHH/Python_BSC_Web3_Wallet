@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 interface BusinessPropsType {
   data: {
     imageUrl: string;
-    cardName: string;
+    display_name: string;
     url: string;
   };
   version?: "new" | "";
@@ -19,6 +19,7 @@ const BusinessCard = ({ data, version }: BusinessPropsType) => {
   const goto = (url: string) => {
     navigate(url);
   };
+  console.log(data);
   return (
     <div
       className={
@@ -35,7 +36,7 @@ const BusinessCard = ({ data, version }: BusinessPropsType) => {
         />
         <div className="border-t-2 my-5 py-6">
           <button className="border-[#3772FE] border-2 px-3 py-2 text-sm font-bold rounded-3xl mx-auto w-max flex gap-2 justify-between items-center bg-[#3772FF] text-white">
-            {data.cardName}
+            {data.display_name}
           </button>
         </div>
       </div>

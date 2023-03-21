@@ -16,18 +16,18 @@ export default function Dashboard() {
     },
     {
       imageUrl: images.authUser,
-      cardName: "authUser",
-      url: "/page2",
+      cardName: "Manage users",
+      url: "/users",
     },
     {
       imageUrl: images.authUser,
-      cardName: "authUser",
-      url: "/page3",
+      cardName: "Manage tutorials",
+      url: "/tutorials",
     },
     {
       imageUrl: images.authUser,
-      cardName: "authUser",
-      url: "/page4",
+      cardName: "Manage Surveys",
+      url: "/survey-list",
     },
   ];
   return (

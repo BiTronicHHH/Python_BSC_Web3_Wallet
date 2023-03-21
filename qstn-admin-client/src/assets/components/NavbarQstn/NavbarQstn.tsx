@@ -19,6 +19,7 @@ import { FcSurvey } from "react-icons/fc";
 import { FaMedal } from "react-icons/fa";
 import { BiLogOut, BiWallet } from "react-icons/bi";
 import { BsFillMegaphoneFill } from "react-icons/bs";
+import AuthModal from "../AuthModal";
 //routes
 import { Routes } from "../../../routes/Routes";
 import { Account } from "@near-wallet-selector/core";
@@ -29,11 +30,14 @@ import "./index.css";
 import Popper from "popper.js";
 
 import { baseURL as serverBaseURL } from "../../../axiosConfig";
+import businessReducer from "../../../store/features/business/businessSlice";
 
-export default function NavbarQstn() {
-  const { businessAuthenticated } = useAppSelector(
-    (state) => state.businessReducer.business
-  );
+const NavbarQstn = () => {
+  // const { businessAuthenticated } = useAppSelector(
+  //   (state) => state.businessReducer.business
+  // );
+  const businessAuthenticated = localStorage.getItem("token");
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -84,7 +88,6 @@ export default function NavbarQstn() {
 
   const handleSignIn = () => {
     modal.show();
-    console.log("ok");
   };
 
   const handleSignOut = async () => {
@@ -113,7 +116,6 @@ export default function NavbarQstn() {
     const closeDropdownPopover = () => {
       setDropdownPopoverShow(0);
     };
-
     if (businessAuthenticated) {
       return (
         <div className="flex flex-wrap">
@@ -138,16 +140,7 @@ export default function NavbarQstn() {
                     : openDropdownPopover(2);
                 }}
               >
-                <div className="relative userNameBox">
-                  <img
-                    src={
-                      businessAuthenticated.avatar
-                        ? `${serverBaseURL}/${businessAuthenticated.avatar}`
-                        : images.user
-                    }
-                    className="rounded-full"
-                  />
-                </div>
+                <div className="relative userNameBox"></div>
               </button>
               <div
                 ref={popoverDropdownRef}
@@ -182,70 +175,11 @@ export default function NavbarQstn() {
                   "z-50 float-left py-2 rounded text-sm font-bold dropdown-menu text-[#777E90]"
                 }
               >
-                {businessAuthenticated.account_status === 1 && (
-                  <div className="border-b-[1px] flex flex-col gap-2 font-poppins">
-                    <p className="text-[24px] text-[#23262F] m-0 mt-3">
-                      {businessAuthenticated.display_name}
-                    </p>
-                    {/* <div
-                          className="flex gap-2 w-max my-2 cursor-pointer"
-                          onClick={() => handleSignIn()}
-                        >
-                          <img
-                            className="w-[22px]"
-                            src={images.nearLogin}
-                          />
-                          {accountId ? accountId : <span className="text-[#f00] text-sm">Not Connected</span>}
-                        </div> */}
-                    <div className="border-t-2 mt-2" />
-                    <button
-                      className="dropdown-item gap-2 border-b-[1px]"
-                      onClick={() => {
-                        navigate(Routes.SURVEY_LIST, {
-                          state: {
-                            surveyCreated: true,
-                          },
-                        });
-                      }}
-                    >
-                      <BsFillMegaphoneFill size={24} />
-                      My campaign
-                    </button>
-                    <Link
-                      className="dropdown-item gap-2 border-b-[1px]"
-                      to={Routes.SURVEYS_PAYMENTMETHOD_SELECTION}
-                    >
-                      <BiWallet size={24} />
-                      Payment
-                    </Link>
-                    <Link
-                      className="dropdown-item gap-2 border-b-[1px]"
-                      to={Routes.SETTINGS}
-                    >
-                      <GoSettings size={24} />
-                      Settings
-                    </Link>
-                    <Link
-                      className="dropdown-item gap-2 border-b-[1px]"
-                      to={Routes.MEMBERSHIP}
-                    >
-                      <FaMedal size={24} />
-                      Membership
-                    </Link>
-                    <Link
-                      className="dropdown-item gap-2 border-b-[1px]"
-                      to={Routes.EARNINGS}
-                    >
-                      <HiCurrencyDollar size={24} />
-                      Earnings
-                    </Link>
-                  </div>
-                )}
                 <button
                   onClick={() => {
                     dispatch(logoutBusiness());
                     handleSignOut();
-                    window.location.replace("/");
+                    window.location.replace("/login");
                   }}
                   className="gap-2 flex dropdown-item"
                 >
@@ -273,25 +207,48 @@ export default function NavbarQstn() {
             className="lg:border-r-2 pr-4 py-2 mr-4"
           />
         </Link>
-
-        <div className="gird">
-          <div className="justify-self-right flex max-md:justify-end items-center w-full gap-4">
-            <div className="max-md:hidden pl-3">
-              <input
-                className="py-2 px-3 border-2 max-sm:!w-[100vw] focus:ring-blue-500 focus:border-blue-500 border-3 outline-none text-sm rounded-xl relative right-[-5px] w-full"
-                id="business_search"
-                placeholder="Search"
-              />
-            </div>
-            <div className="flex gap-1 items-center mr-2">
-              {!loading && <DisplayNavBasedOnAuthStatus />}
-              <button className="bg-[#3772FF] text-base mr-2 border-none px-3 py-2 text-white font-segoe-ui font-bold rounded-full w-max m-auto justify-center flex custom-dropdown">
-                Upload
-              </button>
-            </div>
+        <div className="flex justify-between max-md:justify-end items-center w-full">
+          <div className="max-md:hidden pl-3"></div>
+          <div className="flex gap-1 items-center mr-2">
+            {!loading && <DisplayNavBasedOnAuthStatus />}
+            <button
+              className="border-2 rounded-md p-2 md:hidden"
+              onClick={() => setOpenRoutesList((p) => !p)}
+            >
+              <svg
+                stroke="currentColor"
+                fill="#6b7280"
+                strokeWidth="0"
+                viewBox="0 0 12 16"
+                className="h-6 w-6 shrink-0"
+                height="1em"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M11.41 9H.59C0 9 0 8.59 0 8c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4H.59C0 5 0 4.59 0 4c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM.59 11H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1H.59C0 13 0 12.59 0 12c0-.59 0-1 .59-1z"
+                ></path>
+              </svg>
+            </button>
           </div>
         </div>
+        {authModal.show ? (
+          <AuthModal
+            closeAuthModal={() =>
+              setAuthModal({
+                show: false,
+                type: "",
+              })
+            }
+            authModal={authModal}
+          />
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
-}
+};
+
+export default NavbarQstn;

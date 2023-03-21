@@ -1,7 +1,19 @@
-import { changePassword, getPopularBusiness, loadBusiness, updateAccountInfo, updatePaymentMethod, uploadAvatar } from "./business.actions";
+import {
+  changePassword,
+  getPopularBusiness,
+  loadBusiness,
+  updateAccountInfo,
+  updatePaymentMethod,
+  uploadAvatar,
+} from "./business.actions";
 
 import { combineReducers, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Business, BusinessState, PopularBusinessState, UpdateBusinessState } from "../types";
+import {
+  Business,
+  BusinessState,
+  PopularBusinessState,
+  UpdateBusinessState,
+} from "../types";
 
 const name = "business";
 
@@ -14,13 +26,13 @@ const businessState: BusinessState = {
 const updatedBusinesState: UpdateBusinessState = {
   updateError: null,
   updateSuccess: false,
-  business: null
-}
+  business: null,
+};
 
 const popularBusinessState: PopularBusinessState = {
   loading: false,
-  popluarBusinessList: []
-}
+  popluarBusinessList: [],
+};
 
 export const businessSlice = createSlice({
   name,
@@ -46,11 +58,14 @@ export const businessSlice = createSlice({
         loading: false,
       })
     );
-    builder.addCase(loadBusiness.rejected, (state, action: PayloadAction<any>) => ({
-      loading: false,
-      businessAuthenticated: null,
-      isAuthenticated: false,
-    }));
+    builder.addCase(
+      loadBusiness.rejected,
+      (state, action: PayloadAction<any>) => ({
+        loading: false,
+        businessAuthenticated: null,
+        isAuthenticated: false,
+      })
+    );
   },
 });
 
@@ -158,19 +173,22 @@ export const popularBusinessSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getPopularBusiness.pending, (state) => ({
       ...state,
-      loading: true
+      loading: true,
     }));
     builder.addCase(
       getPopularBusiness.fulfilled,
       (state, action: PayloadAction<Business[]>) => ({
         loading: false,
-        popluarBusinessList: action.payload
+        popluarBusinessList: action.payload,
       })
     );
-    builder.addCase(getPopularBusiness.rejected, (state, action: PayloadAction<any>) => ({
-      loading: false,
-      popluarBusinessList: action.payload
-    }));
+    builder.addCase(
+      getPopularBusiness.rejected,
+      (state, action: PayloadAction<any>) => ({
+        loading: false,
+        popluarBusinessList: action.payload,
+      })
+    );
   },
 });
 
@@ -180,7 +198,7 @@ export const { clearErrors } = updateBusinessSlice.actions;
 const businessReducer = combineReducers({
   business: businessSlice.reducer,
   popularBusiness: popularBusinessSlice.reducer,
-  updateBusiness: updateBusinessSlice.reducer
+  updateBusiness: updateBusinessSlice.reducer,
 });
 
 export default businessReducer;
